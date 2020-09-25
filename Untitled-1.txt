@@ -1,0 +1,45 @@
+Diferencias entre elementos HTML:
+
+Native n tem as mesmas tags do HTML. Qualquer tag view pode ser usada no
+lugar de header, footer, aside.
+
+tag text substitui h1, pode
+
+para criar estilos usar StyleSheet.creat{
+    propriedades do CSS
+}
+
+O native ja vem com display: flex por padrão
+
+No native onde tivermos '-', simplesmente juntamos o a segunda palavra com letra maiuscula.
+
+ex: 
+
+No Css padrão:
+
+background-color:
+
+No native:
+
+backgroundColor:
+
+
+Os valores que não são números precisam usar aspas:
+
+ex:
+
+backgroundColor: '#fff',
+
+Para aplicarmos uma estilização em alguma tag no Native, precisariamos passar um estilização própria,
+criar um objeto  e colocar a propriedadel la:
+
+ex:
+
+<Text style={styles.title}>Olá Mundo!</Text>
+
+
+title: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold'
+}

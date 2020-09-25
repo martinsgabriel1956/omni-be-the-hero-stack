@@ -1,0 +1,51 @@
+### Create
+POST http://localhost:3333/ongs
+Content-Type: application/json
+
+{
+    "name": "APAD",
+    "email": "contato@apad.com.br",
+    "whatsapp": "947000000",
+    "city": "Rio de Janeiro",
+    "uf": "RJ"
+}
+
+###
+
+GET http://localhost:3333/ongs
+
+###Casos
+POST http://localhost:3333/incidents
+Content-Type: application/json
+Authorization: 38c53455
+
+{
+    "title": "Caso Hero",
+    "description": "Detalhes do casoH3",
+    "value": 400
+
+}
+
+### Lista
+
+GET http://localhost:3333/incidents
+
+###
+GET http://localhost:3333/incidents?page=1
+
+###Deletar algum caso
+
+DELETE http://localhost:3333/incidents/17
+Authorization: 619f8893
+
+###Profile
+GET http://localhost:3333/profile
+Authorization: d7e2107c
+
+###Login
+POST http://localhost:3333/sessions
+Content-Type: application/json
+
+{
+    "id": "619f8893"
+}

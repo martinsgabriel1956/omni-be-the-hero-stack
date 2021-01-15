@@ -8,5 +8,5 @@
 </p>
 
 <h1 align="center">
-  <img src=".github/Homepage.png" alt="happy" />
+  <img src=".github/banner.png" alt="Be The Hero" />
 </h1>

@@ -41,11 +41,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/martinsgabriel1956/happy.git>
+$ git clone <https://github.com/martinsgabriel1956/omni-be-the-hero-stack.git>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd happy
-
+$ cd omni-be-the-hero-stack
 # Vá para a pasta server
 $ cd server
 
@@ -71,7 +70,7 @@ $ yarn run dev
 ```bash
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd happy
+$ cd omni-be-the-hero-stack
 
 # Vá para a pasta server
 $ cd web
@@ -97,7 +96,7 @@ $ yarn start
 ```bash
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd happy
+$ cd omni-be-the-hero-stack
 
 # Vá para a pasta server
 $ cd mobile

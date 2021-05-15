@@ -48,7 +48,7 @@ export default function Register(){
 
             <Link className="back-link" to="/">
                 <FiArrowLeft size={16} color="#E02041" />
-                Não Tenho Cadastro
+                Voltar para a Home
             </Link>
             </section>
             
@@ -68,7 +68,7 @@ export default function Register(){
                 />
 
                 <div className="input-group">
-                    <input placeholder="cidade"
+                    <input placeholder="Cidade"
                     value={city}
                     onChange={e => setCity(e.target.value)}
                     />

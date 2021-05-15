@@ -26,3 +26,25 @@
     font-size: 2rem;
     margin-bottom: 2rem;
 }
+
+@media (max-width: 425px) {
+    .logon-container,
+    .back-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logon-container section.form {
+        margin-right: 0;
+    }
+
+    .logon-container section.form form{
+        margin-top: 4rem;
+    }
+
+    .logon-container img:nth-child(2) {
+        display: none;
+    }
+}

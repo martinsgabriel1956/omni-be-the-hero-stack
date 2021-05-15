@@ -30,7 +30,7 @@
     height: 60px;
     width: 60px;
     border-radius: 4px;
-    border: 1px solid #dcdce6;
+    border: 1px solid var(--border-color);
     background: transparent;
     margin-left: 16px;
     transition: border-color 0.2s;

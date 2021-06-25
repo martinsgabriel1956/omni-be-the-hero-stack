@@ -42,9 +42,18 @@
         margin-top: 8px;
       }
 
+      input {
+        &:focus {
+          border: 2px solid #e02041 ;
+        }
+      }
+      
       textarea {
         resize: none;
         height: 200px;
+        &:focus {
+          border: 2px solid #e02041 ;
+        }
       }
     }
   }

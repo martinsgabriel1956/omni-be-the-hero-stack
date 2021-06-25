@@ -39,6 +39,10 @@
 
       input {
         margin-top: 8px;
+
+        &:focus {
+          border: 2px solid #e02041 ;
+        }
       }
 
       .input-group {

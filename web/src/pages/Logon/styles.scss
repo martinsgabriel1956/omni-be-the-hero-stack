@@ -21,6 +21,12 @@
         font-size: 2rem;
         margin-bottom: 2rem;
       }
+
+      input {
+        &:focus {
+          border: 2px solid #e02041 ;
+        }
+      }
     }
   }
 }

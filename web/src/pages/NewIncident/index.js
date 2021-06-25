@@ -4,6 +4,8 @@ import { FiArrowLeft } from "react-icons/fi";
 
 import api from "../../services/api";
 
+import { Button } from "../../components/Button";
+
 import "./styles.scss";
 
 import logoImg from "../../assets/logo.svg";
@@ -73,9 +75,9 @@ export default function NewIncident() {
             onChange={(e) => setValue(e.target.value)}
           />
 
-          <button className="button" type="submit">
+          <Button className="button" type="submit">
             Cadastrar
-          </button>
+          </Button>
         </form>
       </div>
     </div>

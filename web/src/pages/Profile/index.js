@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button } from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import { FiPower, FiTrash2 } from "react-icons/fi";
 
@@ -52,10 +53,10 @@ export default function Profile() {
         <img src={logoImg} alt="Be The Hero" />
         <span>Bem vindo, {ongName} </span>
 
-        <Link className="button" to="/incidents/new">
+        <Link className="btn" to="/incidents/new">
           Cadastrar novo caso
         </Link>
-        <button onClick={handleLogout} type="button">
+        <button id="logoutBtn" onClick={handleLogout} type="button">
           <FiPower size={18} color="#E02041" />
         </button>
       </header>

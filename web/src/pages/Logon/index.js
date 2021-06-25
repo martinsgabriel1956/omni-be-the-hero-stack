@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
 
+import { Button } from "../../components/Button";
+
 import "./styles.scss";
 import api from "../../services/api";
 
@@ -40,9 +42,9 @@ export default function Logon() {
             onChange={(e) => setId(e.target.value)}
           />
 
-          <button className="button" type="submit">
+          <Button className="button" type="submit">
             Entrar
-          </button>
+          </Button>
 
           <Link className="back-link" to="/register">
             <FiLogIn size={16} color="#E02041" />

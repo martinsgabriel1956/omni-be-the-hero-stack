@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 import api from "../../services/api";
 import "./styles.scss";
 
-import { Button } from "../../components/Button";
+import { Button } from "../../components/UI/Button";
 
 import logoImg from "../../assets/logo.svg";
 
@@ -41,7 +42,12 @@ export default function Register() {
 
   return (
     <div className="register-container">
-      <div className="content">
+      <motion.div
+        className="content"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
         <section>
           <img src={logoImg} alt="Be The Hero" />
           <h1>Cadastro</h1>
@@ -49,11 +55,16 @@ export default function Register() {
             Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem
             os casos da sua ONG.
           </p>
-
-          <Link className="back-link" to="/">
-            <FiArrowLeft size={16} color="#E02041" />
-            Voltar para a Home
-          </Link>
+          <motion.div
+            whileHover={{ scale: 1, x: -25 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <Link className="back-link" to="/">
+              <FiArrowLeft size={16} color="#E02041" />
+              Voltar para a Home
+            </Link>
+          </motion.div>
         </section>
 
         <form onSubmit={handleRegister}>
@@ -92,7 +103,7 @@ export default function Register() {
             Cadastrar
           </Button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }

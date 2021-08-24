@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 import api from "../../services/api";
 
-import { Button } from "../../components/Button";
+import { Button } from "../../components/UI/Button";
 
 import "./styles.scss";
 
@@ -43,7 +44,12 @@ export default function NewIncident() {
 
   return (
     <div className="new-incident-container">
-      <div className="content">
+      <motion.div
+        className="content"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
         <section>
           <img src={logoImg} alt="Be The Hero" />
           <h1>Cadastrar novo caso</h1>
@@ -52,10 +58,16 @@ export default function NewIncident() {
             isso.
           </p>
 
-          <Link className="back-link" to="/profile">
-            <FiArrowLeft size={16} color="#E02041" />
-            Voltar para home
-          </Link>
+          <motion.div
+            whileHover={{ scale: 1, x: -15 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <Link className="back-link" to="/profile">
+              <FiArrowLeft size={16} color="#E02041" />
+              Voltar para home
+            </Link>
+          </motion.div>
         </section>
 
         <form onSubmit={handleNewIncident}>
@@ -79,7 +91,7 @@ export default function NewIncident() {
             Cadastrar
           </Button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }

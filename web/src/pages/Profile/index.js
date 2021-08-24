@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import { FiPower, FiTrash2 } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 import api from "../../services/api";
 import "./styles.scss";
@@ -49,17 +49,29 @@ export default function Profile() {
 
   return (
     <div className="profile-container">
-      <header>
-        <img src={logoImg} alt="Be The Hero" />
+      <motion.header
+        initial={{ y: -200 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <img
+          src={logoImg}
+          alt="Be The Hero"
+          
+        />
         <span>Bem vindo, {ongName} </span>
 
         <Link className="btn" to="/incidents/new">
           Cadastrar novo caso
         </Link>
-        <button id="logoutBtn" onClick={handleLogout} type="button">
+        <button
+          id="logoutBtn"
+          onClick={handleLogout}
+          type="button"
+        >
           <FiPower size={18} color="#E02041" />
         </button>
-      </header>
+      </motion.header>
       <h1>Casos Cadastrados</h1>
       <ul>
         {incidents.map((incident) => (

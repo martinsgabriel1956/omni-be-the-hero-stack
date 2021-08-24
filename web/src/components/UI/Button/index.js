@@ -2,8 +2,8 @@ import React from 'react';
 
 import './style.scss';
 
-export function Button(props) {
+export function Button({children, ...props}) {
   return (
-    <button className="btn">{props.children}</button>
+    <button {...props} className="btn">{children}</button>
   );
 }

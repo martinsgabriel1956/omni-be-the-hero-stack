@@ -48,12 +48,13 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 24px;
     list-style: none;
-
+    
     li {
       background: #fff;
       padding: 24px;
       border-radius: 8px;
       position: relative;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
       button {
         position: absolute;

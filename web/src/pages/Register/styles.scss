@@ -44,12 +44,21 @@
           border: 2px solid #e02041 ;
         }
       }
-
+      
       .input-group {
         display: flex;
-
+        
         input + input {
           margin-left: 8px;
+        }
+        
+        input {
+          &:nth-child(1) {
+            text-transform: capitalize;
+          }
+          &:nth-child(2) {
+            text-transform: uppercase;
+          }
         }
       }
     }

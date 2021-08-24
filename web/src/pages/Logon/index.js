@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
 
 import { Button } from "../../components/UI/Button";
 
 import "./styles.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 import api from "../../services/api";
 
@@ -18,21 +20,27 @@ export default function Logon() {
 
   async function handleLogin(e) {
     e.preventDefault();
-
+    
     try {
       const res = await api.post("sessions", { id });
-
+      
       localStorage.setItem("ongId", id);
       localStorage.setItem("ongName", res.data.name);
-
+      
       history.push("/profile");
     } catch (err) {
-      alert("Falha no login, tente novamente");
+      if(id.trim() === '') toast.error('Insert your ID!!');
+      if(id) toast.error("Login failed, try again!!");
     }
   }
 
   return (
     <>
+      <ToastContainer 
+        style={{
+          fontSize: 20,
+        }}
+      />
       <div className="logon-container">
         <motion.section
           className="form"
@@ -42,17 +50,17 @@ export default function Logon() {
         >
           <img src={logoImg} alt="Be The Hero" />
           <form onSubmit={handleLogin}>
-            <h1>Faça seu logon</h1>
+            <h1>Make your logon</h1>
 
             <input
-              placeholder="Sua ID"
+              placeholder="Your ID"
               value={id}
               onChange={(e) => setId(e.target.value)}
             />
 
-            <motion.div whileHover={{ scale: 1.05, rotate: 0 }}>
+            <motion.div whileHover={{ scale: 1.025, rotate: 0 }}>
               <Button className="button" type="submit">
-                Entrar
+                Sign In
               </Button>
             </motion.div>
             <motion.div
@@ -62,7 +70,7 @@ export default function Logon() {
             >
               <Link className="back-link" to="/register">
                 <FiLogIn size={16} color="#E02041" />
-                Não Tenho Cadastro
+                I don't have an account
               </Link>
             </motion.div>
           </form>

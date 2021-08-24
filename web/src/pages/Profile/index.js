@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiPower, FiTrash2 } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import "./styles.scss";
 
 import api from "../../services/api";
-import "./styles.scss";
 
 import logoImg from "../../assets/logo.svg";
 
@@ -34,71 +37,92 @@ export default function Profile() {
           Authorization: ongId,
         },
       });
-
       setIncidents(incidents.filter((incident) => incident.id !== id));
+      toast.success("Incident deleted with success!");      
     } catch (err) {
-      alert("Erro ao deletar caso, tente novamente");
+      toast.error("Erro in delete case, try again!!");
     }
   }
 
   function handleLogout() {
     localStorage.clear();
+    toast.success(`See you later!!`);
 
-    history.push("/");
+    setTimeout(() => {
+      history.push("/");
+    }, 6000);
   }
 
   return (
-    <div className="profile-container">
-      <motion.header
-        initial={{ y: -200 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <img
-          src={logoImg}
-          alt="Be The Hero"
-          
-        />
-        <span>Bem vindo, {ongName} </span>
-
-        <Link className="btn" to="/incidents/new">
-          Cadastrar novo caso
-        </Link>
-        <button
-          id="logoutBtn"
-          onClick={handleLogout}
-          type="button"
+    <>
+      <ToastContainer
+        position="top-center"
+        closeOnClick
+        style={{
+          fontSize: 20,
+        }}
+      />
+      <div className="profile-container">
+        <motion.header
+          initial={{ y: -200 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1 }}
         >
-          <FiPower size={18} color="#E02041" />
-        </button>
-      </motion.header>
-      <h1>Casos Cadastrados</h1>
-      <ul>
-        {incidents.map((incident) => (
-          <li key={incident.id}>
-            <strong>CASO:</strong>
-            <p>{incident.title}</p>
+          <img src={logoImg} alt="Be The Hero" />
+          <span>
+            Welcome, <strong>{ongName}</strong>{" "}
+          </span>
 
-            <strong>DESCRIÇÃO</strong>
-            <p>{incident.description}</p>
+          <Link className="btn" to="/incidents/new">
+            Register a new case
+          </Link>
+          <button
+            title="logout"
+            id="logoutBtn"
+            onClick={handleLogout}
+            type="button"
+          >
+            <FiPower size={18} color="#E02041" />
+          </button>
+        </motion.header>
+        <motion.h1
+          initial={{ y: -200 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Registered Cases:
+        </motion.h1>
+        <motion.ul
+          initial={{ y: -200 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          {incidents.map((incident) => (
+            <li key={incident.id}>
+              <strong>CASE:</strong>
+              <p>{incident.title}</p>
 
-            <strong>VALOR:</strong>
-            <p>
-              {Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              }).format(incident.value)}
-            </p>
+              <strong>DESCRIPTION</strong>
+              <p>{incident.description}</p>
 
-            <button
-              onClick={() => handleDeleteIncident(incident.id)}
-              type="button"
-            >
-              <FiTrash2 size={20} color="#a8a8b3" />
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+              <strong>VALUE:</strong>
+              <p>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(incident.value)}
+              </p>
+
+              <button
+                onClick={() => handleDeleteIncident(incident.id)}
+                type="button"
+              >
+                <FiTrash2 size={20} color="#a8a8b3" />
+              </button>
+            </li>
+          ))}
+        </motion.ul>
+      </div>
+    </>
   );
 }

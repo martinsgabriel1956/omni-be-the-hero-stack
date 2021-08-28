@@ -64,8 +64,8 @@ export default function Logon() {
               </Button>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1, x: 25 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileHover={{ x: 25 }}
+              animate={{ x: 0 }}
               transition={{ duration: 1 }}
             >
               <Link className="back-link" to="/register">
@@ -81,6 +81,7 @@ export default function Logon() {
           alt="Heroes"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.75 }}
         />
       </div>
     </>

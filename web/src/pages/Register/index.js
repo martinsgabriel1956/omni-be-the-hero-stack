@@ -10,6 +10,7 @@ import "./styles.scss";
 import api from "../../services/api";
 
 import { Button } from "../../components/UI/Button";
+import { MyModal } from "../../components/UI/Modal";
 
 import logoImg from "../../assets/logo.svg";
 
@@ -20,9 +21,14 @@ export default function Register() {
   const [city, setCity] = useState("");
   const [uf, setUf] = useState("");
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [msg, setMsg] = useState("");
+
   const history = useHistory();
 
   async function handleRegister(e) {
+    setIsOpen(false);
+
     e.preventDefault();
 
     const data = {
@@ -37,16 +43,33 @@ export default function Register() {
       if (!name || !email || !whatsapp || !city || !uf) {
         toast.error("Fill all the fields, please!");
       } else {
-        const res = await api.post("ongs", data);
-        alert(`Your access ID: ${res.data.id}`);
-
-        setTimeout(() => {
-          history.push("/");
-        }, 8000);
+        const res = await api.post("/ongs", data);
+        setMsg(`${res.data.id}`);
+        modalIsOpen();
       }
     } catch (err) {
       toast.error("Error in registration, try again!!");
     }
+  }
+
+  function modalIsClose() {
+    setIsOpen(false);
+  }
+
+  function modalIsOpen() {
+    setIsOpen(true);
+  }
+
+  function navigationToHome() {
+    setName("");
+    setEmail("");
+    setWhatsapp("");
+    setCity("");
+    setUf("");
+    setTimeout(() => {
+      history.push("/");
+    }, 1000);
+    setIsOpen(false);
   }
 
   return (
@@ -123,6 +146,21 @@ export default function Register() {
             </motion.div>
           </form>
         </motion.div>
+
+        <MyModal isOpen={isOpen} onRequestClose={modalIsClose}>
+          <button className="modal-close-btn" onClick={modalIsClose}>
+            x
+          </button>
+          <h1>Your access ID: </h1>
+          <h3 className="id">{msg}</h3>
+          <button
+            className="modal-accept-btn"
+            type="button"
+            onClick={navigationToHome}
+          >
+            Accept
+          </button>
+        </MyModal>
       </div>
     </>
   );

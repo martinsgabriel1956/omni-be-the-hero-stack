@@ -7,12 +7,17 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles.scss";
 
+import { MyModal } from "../../components/UI/Modal";
+
 import api from "../../services/api";
 
 import logoImg from "../../assets/logo.svg";
 
 export default function Profile() {
   const [incidents, setIncidents] = useState([]);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [msg, setMsg] = useState("");
 
   const history = useHistory();
   const ongId = localStorage.getItem("ongId");
@@ -31,6 +36,8 @@ export default function Profile() {
   }, [ongId]);
 
   async function handleDeleteIncident(id) {
+    setIsOpen(false);
+
     try {
       await api.delete(`incidents/${id}`, {
         headers: {
@@ -38,10 +45,22 @@ export default function Profile() {
         },
       });
       setIncidents(incidents.filter((incident) => incident.id !== id));
-      toast.success("Incident deleted with success!");      
+      modalIsOpen();
+      setMsg(`Incident deleted with success!`);
+      modalIsClose();
     } catch (err) {
       toast.error("Erro in delete case, try again!!");
     }
+  }
+
+  function modalIsClose() {
+    setTimeout(() => {
+      setIsOpen(false)
+    }, 2000);
+  }
+
+  function modalIsOpen() {
+    setIsOpen(true);
   }
 
   function handleLogout() {
@@ -122,6 +141,12 @@ export default function Profile() {
             </li>
           ))}
         </motion.ul>
+        <MyModal isOpen={isOpen} onRequestClose={modalIsClose}>
+          <button className="modal-close-btn" onClick={modalIsClose}>
+            x
+          </button>
+          <h1 class="id">{msg}</h1>
+        </MyModal>
       </div>
     </>
   );

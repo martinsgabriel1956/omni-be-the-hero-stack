@@ -1,4 +1,6 @@
-.profile-container {
+import styled from "styled-components";
+
+export const Container = styled.div`
   width: 100%;
   max-width: 1180px;
   padding: 0 30px;
@@ -37,7 +39,6 @@
       }
     }
   }
-
   h1 {
     margin-top: 80px;
     margin-bottom: 24px;
@@ -48,7 +49,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 24px;
     list-style: none;
-    
+
     li {
       background: #fff;
       padding: 24px;
@@ -87,4 +88,4 @@
       }
     }
   }
-}
+`;

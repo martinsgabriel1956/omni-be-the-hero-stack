@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import api from "../../services/api";
 
 import "react-toastify/dist/ReactToastify.css";
-import "./styles.scss";
+import { Container, Content } from "./styles.js";
 
 import { Button } from "../../components/UI/Button";
 
@@ -60,9 +60,8 @@ export default function NewIncident() {
           fontSize: 20,
         }}
       />
-      <div className="new-incident-container">
-        <motion.div
-          className="content"
+      <Container>
+        <Content
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -111,8 +110,8 @@ export default function NewIncident() {
               </Button>
             </motion.div>
           </form>
-        </motion.div>
-      </div>
+        </Content>
+      </Container>
     </>
   );
 }

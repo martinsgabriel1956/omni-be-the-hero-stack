@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import "./styles.scss";
+import { Container, Content } from "./styles.js";
 
 import api from "../../services/api";
 
@@ -79,8 +79,8 @@ export default function Register() {
           fontSize: 20,
         }}
       />
-      <div className="register-container">
-        <motion.div
+      <Container>
+        <Content
           className="content"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -145,7 +145,7 @@ export default function Register() {
               </Button>
             </motion.div>
           </form>
-        </motion.div>
+        </Content>
 
         <MyModal isOpen={isOpen} onRequestClose={modalIsClose}>
           <button className="modal-close-btn" onClick={modalIsClose}>
@@ -161,7 +161,7 @@ export default function Register() {
             Accept
           </button>
         </MyModal>
-      </div>
+      </Container>
     </>
   );
 }

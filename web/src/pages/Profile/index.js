@@ -3,9 +3,10 @@ import { Link, useHistory } from "react-router-dom";
 import { FiPower, FiTrash2 } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
+import { Spin as Hamburger } from "hamburger-react";
 
 import "react-toastify/dist/ReactToastify.css";
-import "./styles.scss";
+import { Container } from "./styles.js";
 
 import { MyModal } from "../../components/UI/Modal";
 
@@ -18,6 +19,7 @@ export default function Profile() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [msg, setMsg] = useState("");
+  const [isOpenHamburger, setOpenHamburger] = useState(false);
 
   const history = useHistory();
   const ongId = localStorage.getItem("ongId");
@@ -55,7 +57,7 @@ export default function Profile() {
 
   function modalIsClose() {
     setTimeout(() => {
-      setIsOpen(false)
+      setIsOpen(false);
     }, 2000);
   }
 
@@ -81,7 +83,7 @@ export default function Profile() {
           fontSize: 20,
         }}
       />
-      <div className="profile-container">
+      <Container>
         <motion.header
           initial={{ y: -200 }}
           animate={{ y: 0 }}
@@ -147,7 +149,7 @@ export default function Profile() {
           </button>
           <h1 class="id">{msg}</h1>
         </MyModal>
-      </div>
+      </Container>
     </>
   );
 }

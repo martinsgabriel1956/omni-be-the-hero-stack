@@ -6,8 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { Button } from "../../components/UI/Button";
 
-import "./styles.scss";
 import "react-toastify/dist/ReactToastify.css";
+import { Container, HeroImg, Form } from "./styles.js";
 
 import api from "../../services/api";
 
@@ -41,8 +41,8 @@ export default function Logon() {
           fontSize: 20,
         }}
       />
-      <div className="logon-container">
-        <motion.section
+      <Container>
+        <Form
           className="form"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -74,16 +74,16 @@ export default function Logon() {
               </Link>
             </motion.div>
           </form>
-        </motion.section>
+        </Form>
 
-        <motion.img
+        <HeroImg
           src={heroesImg}
           alt="Heroes"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.75 }}
         />
-      </div>
+      </Container>
     </>
   );
 }

@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FiPower, FiTrash2 } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
-import { Spin as Hamburger } from "hamburger-react";
 
 import "react-toastify/dist/ReactToastify.css";
 import { Container } from "./styles.js";
 
 import { MyModal } from "../../components/UI/Modal";
+import { Button } from "../../components/UI/Button/index.js";
 
 import api from "../../services/api";
 
 import logoImg from "../../assets/logo.svg";
+import logoImgLight from "../../assets/logo-light.svg";
 
-export default function Profile() {
+export default function Profile(props) {
   const [incidents, setIncidents] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -83,20 +84,20 @@ export default function Profile() {
           fontSize: 20,
         }}
       />
-      <Container>
+      <Container changeTheme={props.theme}>
         <motion.header
           initial={{ y: -200 }}
           animate={{ y: 0 }}
           transition={{ duration: 1 }}
         >
-          <img src={logoImg} alt="Be The Hero" />
+          <img src={props.theme && localStorage.getItem('theme') === 'light' ? logoImg : logoImgLight} alt="Be The Hero" />
           <span>
             Welcome, <strong>{ongName}</strong>{" "}
           </span>
 
-          <Link className="btn" to="/incidents/new">
+          <Button to="/incidents/new">
             Register a new case
-          </Link>
+          </Button>
           <button
             title="logout"
             id="logoutBtn"

@@ -1,21 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import Modal from 'react-modal';
-
-import './styles.scss';
+import { Container, OverLay } from "./styles.js";
 
 export function MyModal({ isOpen, onRequestClose, children, ...props }) {
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      className="modal"
-      ariaHideApp={false}
-      overlayClassName="modal-overlay"
-      {...props}
-    >
-      {children}
-    </Modal>
+    <>
+      {isOpen && (
+        <OverLay changeTheme={props.changeTheme}
+        >
+          <Container
+            isOpen={isOpen}
+            onRequestClose={onRequestClose}
+            ariaHideApp={false}
+            overlayClassName={"modal-overlay"}
+            {...props}
+          >
+            {children}
+          </Container>
+        </OverLay>
+      )}
+    </>
   );
-};
-
+}

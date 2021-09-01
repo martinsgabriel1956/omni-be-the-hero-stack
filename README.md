@@ -8,7 +8,9 @@
 </p>
 
 <h1 align="center">
-  <img src=".github/banner.png" alt="Be The Hero" />
+ <video src="./.github/demo-project.mp4" type="video/mp4" controls width="100%" autoplay="true" loop="true">
+  <source >
+</video>
 </h1>
 
 ## Tecnologias :computer::
@@ -16,28 +18,70 @@
 <ul>
    <li>
      <a href="https://nodejs.org/en/">Node.js</a>
+
   </li>
+  <ul>
+    <li>
+      <a href="https://expressjs.com">Express</a>
+    </li>
+    <li>
+      <a href="https://knexjs.org/">Knex.js</a>
+    </li>
+    <li>
+      <a href="https://www.sqlite.org">SQLite 3</a>
+    </li>
+  </ul>
   
   <li>
     <a href="https://pt-br.reactjs.org/">React</a>
   </li>
 
+  <ul>
+    <li>
+      <a href="https://styled-components.com/">Styled Components</a>
+    </li>
+    <li>
+      <a href="https://www.framer.com/motion/">Framer Motion</a>
+    </li>
+    <li>
+      <a href="https://axios-http.com/">Axios</a>
+    </li>
+    <li>
+      <a href="https://www.cypress.io/">Cypress</a>
+    </li>
+    <li>
+      <a href="https://reactrouter.com/web/guides/quick-start">React Router DOM</a>
+    </li>
+  </ul>
+
   <li>
      <a href="https://reactnative.dev/">React Native</a>
   </li>
-
-  <li>
-     <a href="https://expo.io/">Expo</a>
-  </li>
+  <ul>
+    <li>
+      <a href="https://expo.io/">Expo</a>
+    </li>
+    <li>
+      <a href="https://reactnavigation.org/">React Navigation</a>
+    </li>
+    <li>
+      <a href="https://axios-http.com/">Axios</a>
+    </li>
+    <li>
+      <a href="https://docs.expo.dev/versions/latest/sdk/mail-composer/">Expo MailComposer</a>
+    </li>
+  </ul>
 </ul>
 
-### Pré-requisitos
+___
+
+## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### 🎲 Rodando o Back End (servidor)
+## 🎲 Rodando o Back-end (servidor)
 
 ```bash
 # Clone este repositório
@@ -65,7 +109,7 @@ $ yarn run dev
 # O servidor inciará na porta:3333 - acesse <http://localhost:3333>
 ```
 
-### :globe_with_meridians: Rodando o Front End (Web)
+## :globe_with_meridians: Rodando o Front-end (Web)
 
 ```bash
 
@@ -91,7 +135,7 @@ $ yarn start
 
 ```
 
-### :iphone: Rodando o Mobile
+## :iphone: Rodando o Mobile
 
 ```bash
 
@@ -112,27 +156,31 @@ $ yarn install
 
 ## Para abrir o metro bundler
 $ npm start
+
 ### ou
+
 $ yarn start
 
 ## Para abrir direto no emulador android
-
 $ npm android
-### ou 
+
+### ou
+
 $ yarn android
 
-## Para abrir direto no emulador ios 
+## Para abrir direto no emulador ios
 $ npm ios
+
 ## ou
+
 $ yarn ios
 
 ```
 
-##### OBS: Se quiser iniciar a aplicação por meio de dispositivo fisico, primeiramente baixe o Expo na loja de aplicativos. Após isso, com o metro buldler aberto, escaneie o QR code e sua aplicação estará rodando.
+> OBS: Se quiser iniciar a aplicação por meio de dispositivo físico, primeiramente baixe o Expo na loja de aplicativos. Após isso, com o metro bundler aberto, escaneie o QR code e sua aplicação estará rodando.
 
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ---
-

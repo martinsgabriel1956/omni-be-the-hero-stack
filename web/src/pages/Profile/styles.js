@@ -30,12 +30,14 @@ export const Container = styled.div`
       width: 60px;
       border-radius: 4px;
       border: 1px solid var(--border-color);
-      background: transparent;
+      background-color: ${props => props.changeTheme && localStorage.getItem('theme') === 'dark' ? `#dcdce6` : 'transparent'};
       margin-left: 16px;
-      transition: border-color 0.2s;
-
+      transition: border-color 0.4s;
+      
       &:hover {
-        border-color: #999;
+        border-color: ${props => props.changeTheme === 'dark' ? `#dcdce6` : '#999'};
+        background-color: ${props => props.changeTheme && localStorage.getItem('theme') === 'dark' ? `transparent` : ''};
+        
       }
     }
   }
@@ -55,7 +57,7 @@ export const Container = styled.div`
       padding: 24px;
       border-radius: 8px;
       position: relative;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      box-shadow: ${props => props.changeTheme && localStorage.getItem('theme') === 'dark' ? 'rgba(125, 125, 125, 0.7)' : 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;
 
       button {
         position: absolute;

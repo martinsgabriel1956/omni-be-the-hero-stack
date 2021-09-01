@@ -12,9 +12,11 @@ import { Container, HeroImg, Form } from "./styles.js";
 import api from "../../services/api";
 
 import logoImg from "../../assets/logo.svg";
+import logoImgLight from "../../assets/logo-light.svg";
+
 import heroesImg from "../../assets/heroes.png";
 
-export default function Logon() {
+export default function Logon(props) {
   const [id, setId] = useState("");
   const history = useHistory();
 
@@ -41,14 +43,14 @@ export default function Logon() {
           fontSize: 20,
         }}
       />
-      <Container>
+      <Container >
         <Form
-          className="form"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.75 }}
+          changeTheme={props.theme}
         >
-          <img src={logoImg} alt="Be The Hero" />
+          <img src={props.theme && localStorage.getItem('theme') === 'light' ? logoImg : logoImgLight} alt="Be The Hero" />
           <form onSubmit={handleLogin}>
             <h1>Make your logon</h1>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
 import { motion } from "framer-motion";
@@ -11,10 +11,12 @@ import api from "../../services/api";
 
 import { Button } from "../../components/UI/Button";
 import { MyModal } from "../../components/UI/Modal";
+import { CardContainer } from "../../components/UI/CardContainer";
 
 import logoImg from "../../assets/logo.svg";
+import logoImgLight from "../../assets/logo-light.svg";
 
-export default function Register() {
+export default function Register(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -72,6 +74,10 @@ export default function Register() {
     setIsOpen(false);
   }
 
+  function copyToClipboard() {
+
+  }
+
   return (
     <>
       <ToastContainer
@@ -80,14 +86,21 @@ export default function Register() {
         }}
       />
       <Container>
-        <Content
-          className="content"
+        <CardContainer
+          changeTheme={props.theme}
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           <section>
-            <img src={logoImg} alt="Be The Hero" />
+            <img
+              src={
+                props.theme && localStorage.getItem("theme") === "light"
+                  ? logoImg
+                  : logoImgLight
+              }
+              alt="Be The Hero"
+            />
             <h1>Registration:</h1>
             <p>
               Make your register, enter in the dashboard and help people to find
@@ -145,9 +158,13 @@ export default function Register() {
               </Button>
             </motion.div>
           </form>
-        </Content>
+        </CardContainer>
 
-        <MyModal isOpen={isOpen} onRequestClose={modalIsClose}>
+        <MyModal
+          isOpen={isOpen}
+          onRequestClose={modalIsClose}
+          changeTheme={props.theme}
+        >
           <button className="modal-close-btn" onClick={modalIsClose}>
             x
           </button>

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import theme from "../utils/theme";
 
 export const GlobalStyle = createGlobalStyle`
 	:root {
@@ -15,12 +16,18 @@ export const GlobalStyle = createGlobalStyle`
 
 	body{
 			font: 400 14px Roboto, sans-serif;
-			background: var(--bg-color);
+			background: ${props => props.theme && localStorage.getItem('theme') === 'dark' ? `${theme.DarkTheme.bgColor}` : `${theme.LightTheme.bgColor}`};
 			-webkit-font-smoothing: antialiased;
+
+			overflow-y: hidden;
 	}
 
 	input, button, textarea {
 			font: 400 18px Roboto, sans-serif;
+	}
+
+	h1, span {
+		color: ${props => props.theme && localStorage.getItem('theme') === "dark" ? `${theme.DarkTheme.backLinkColor}` : "#000"};
 	}
 
 	button{
@@ -28,34 +35,34 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	form input{
-			width: 100%;
-			height: 60px;
-			color: #333333;
-			border: 1px solid var(--border-color);
-			border-radius: 8px;
-			padding: 0 24px;
+		width: 100%;
+		height: 60px;
+		color: #333333;
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		padding: 0 24px;
 	}
 
 	form textarea{
-			width: 100%;
-			resize: vertical;
-			min-height: 140px;
-			color: #333333;
-			border: 1px solid var(--border-color);
-			border-radius: 8px;
-			padding: 16px 24px;
-			line-height: 24px;
+		width: 100%;
+		resize: vertical;
+		min-height: 140px;
+		color: #333333;
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		padding: 16px 24px;
+		line-height: 24px;
 	}
 
 	.back-link{
-			display: flex;
-			align-items: center;
-			margin-top: 40px;
-			color: #41414d;
-			font-size: 18px;
-			text-decoration: none;
-			font-weight: 500;
-			transition: opacity 0.2s;
+		display: flex;
+		align-items: center;
+		margin-top: 40px;
+		color: ${props => props.theme && localStorage.getItem('theme') === 'dark' ? `${theme.DarkTheme.backLinkColor}` : `${theme.LightTheme.backLinkColor}`};
+		font-size: 18px;
+		text-decoration: none;
+		font-weight: 500;
+		transition: opacity 0.2s;
 	}
 
 	.back-link svg{

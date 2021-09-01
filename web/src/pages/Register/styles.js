@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import theme from "../../utils/theme";
+
 export const Container = styled.div`
   width: 100%;
   max-width: 1120px;
@@ -21,7 +23,7 @@ export const Container = styled.div`
 export const Content = styled(motion.div)`
   width: 100%;
   padding: 96px;
-  background: var(--bg-color);
+  background: ${props => props.changeTheme && localStorage.getItem('theme') === 'dark' ? '#444' : `${theme.LightTheme.bgColor}`};
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;

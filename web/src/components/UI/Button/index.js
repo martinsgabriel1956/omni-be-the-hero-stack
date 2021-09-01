@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import './style.scss';
+import { LinkContainer, ButtonContainer } from "./styles.js";
 
-export function Button({children, ...props}) {
+export function Button({ children, ...props }) {
   return (
-    <button {...props} className="btn">{children}</button>
+    <>
+      {props.to ? (
+        <LinkContainer {...props}>{children}</LinkContainer>
+      ) : (
+        <ButtonContainer {...props}>{children}</ButtonContainer>
+      )}
+    </>
   );
 }

@@ -7,13 +7,15 @@ import { ToastContainer, toast } from "react-toastify";
 import api from "../../services/api";
 
 import "react-toastify/dist/ReactToastify.css";
-import { Container, Content } from "./styles.js";
+import { Container } from "./styles.js";
 
 import { Button } from "../../components/UI/Button";
+import { CardContainer } from "../../components/UI/CardContainer";
 
 import logoImg from "../../assets/logo.svg";
+import logoImgLight from "../../assets/logo-light.svg";
 
-export default function NewIncident() {
+export default function NewIncident(props) {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [value, setValue] = useState();
@@ -61,13 +63,14 @@ export default function NewIncident() {
         }}
       />
       <Container>
-        <Content
+        <CardContainer
+          changeTheme={props.theme}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           <section>
-            <img src={logoImg} alt="Be The Hero" />
+            <img src={props.theme && localStorage.getItem('theme') === 'light' ? logoImg : logoImgLight} alt="Be The Hero" />
             <h1>Register a new case</h1>
             <p>Describe in details to find a hero when will resolve this!</p>
 
@@ -110,7 +113,7 @@ export default function NewIncident() {
               </Button>
             </motion.div>
           </form>
-        </Content>
+        </CardContainer>
       </Container>
     </>
   );

@@ -8,7 +8,7 @@
 </p>
 
 <h1 align="center">
-  
+  <img src=".github/banner.png" alt="Banner" title="Banner" />
 </h1>
 
 ## Tecnologias :computer::

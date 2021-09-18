@@ -8,7 +8,9 @@
 </p>
 
 <h1 align="center">
- <video src=".github/demo-project.mp4" type="video/mp4" controls width="100%" autoplay="true" loop="true"></video>
+ <video controls width="100%" autoplay="true" loop="true">
+    <source src=".github/demo-project.mp4" type="video/mp4" />
+  </video>
 </h1>
 
 ## Tecnologias :computer::

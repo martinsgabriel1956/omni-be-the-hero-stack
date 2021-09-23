@@ -8,7 +8,7 @@
 </p>
 
 <h1 align="center">
-  <img src=".github/banner.png" alt="Banner" title="Banner" />
+  <img src=".github/demo-project.gif" alt="Banner" title="Banner" width="90%" height="90%" />
 </h1>
 
 ## Tecnologias :computer::
